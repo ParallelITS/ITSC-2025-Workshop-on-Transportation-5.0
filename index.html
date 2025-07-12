@@ -5,123 +5,229 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IEEE ITSC 2025 Workshop on Transportation 5.0</title>
     <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #6c757d;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --accent: #ffc107;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-        }
-        h1, h2 {
-            color: #0066cc;
-        }
-        h1 {
-            border-bottom: 2px solid #0066cc;
-            padding-bottom: 10px;
-        }
-        h2 {
-            margin-top: 30px;
-        }
-        .organizer {
-            margin-bottom: 5px;
-        }
-        .presentation {
+            color: var(--dark);
             background-color: #f5f5f5;
-            padding: 15px;
-            margin: 15px 0;
-            border-left: 4px solid #0066cc;
+            margin: 0;
+            padding: 0;
         }
-        ul {
-            padding-left: 20px;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
+        
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin-top: 1.5rem;
+        }
+        
+        .organizers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .organizer {
+            flex: 1;
+            min-width: 250px;
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .presentations {
+            margin: 2rem 0;
+        }
+        
+        .presentation {
+            background: var(--light);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .presentation h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .presentation p {
+            margin: 0.5rem 0;
+        }
+        
+        ul.topics {
+            columns: 2;
+            column-gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        ul.topics li {
+            margin-bottom: 0.5rem;
+            break-inside: avoid;
+        }
+        
         .keywords {
             font-style: italic;
-            color: #666;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            ul.topics {
+                columns: 1;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>IEEE ITSC 2025 Workshop Proposal</h1>
-    
-    <h2>Title:</h2>
-    <p>IEEE 2025 ITSC Workshop on Transportation 5.0</p>
-    
-    <h2>Format:</h2>
-    <p>Half-day Workshop</p>
-    
-    <h2>Organizers</h2>
-    <div class="organizer">
-        Yisheng Lv (Institute of Automation, Chinese Academy of Sciences, 
-        <a href="mailto:yisheng.lv@ia.ac.cn">yisheng.lv@ia.ac.cn</a>)
+    <div class="container">
+        <header>
+            <h1>IEEE ITSC 2025 Workshop on Transportation 5.0</h1>
+            <p>Towards Cyber-Physical-Social Intelligent Transportation Systems</p>
+        </header>
+        
+        <div class="content">
+            <h2>About the Workshop</h2>
+            <p>
+                With the rapid advancement and integration of cutting-edge technologies 
+                like IoT, edge computing, blockchain, and generative AI, massive amounts 
+                of real-time social and physical data are being generated for 
+                transportation systems. Transportation 5.0, the next evolution in 
+                intelligent mobility, is built on Cyber-Physical-Social Systems (CPSS), 
+                enabling deeper human-machine collaboration. As one of the most complex 
+                engineered systems, transportation faces multifaceted challenges that 
+                demand cost-effective, time-sensitive, and spatially optimized 
+                solutions.
+            </p>
+            
+            <p>
+                This workshop aims to inspire innovative approaches to these 
+                challenges by leveraging CPSS-based Intelligent Transportation Systems 
+                (ITS), which harness real-time social and physical data for smarter 
+                decision-making. The focus is on applying CPSS-empowered ITS to enhance 
+                traffic planning, dynamic routing, adaptive management, predictive 
+                control, and data-driven transportation analytics--delivering greater 
+                efficiency, precision, agility, and scalability. We invite researchers 
+                and industry leaders to explore this transformative frontier in ITS and 
+                shape the future of mobility.
+            </p>
+            
+            <h2>Topics of Interest</h2>
+            <ul class="topics">
+                <li>Cyber-Physical-Social Systems (CPSS) for transportation</li>
+                <li>Parallel transportation with knowledge automation</li>
+                <li>Big Models and Foundation Intelligence for ITS</li>
+                <li>GenAI and AGI for integrated and sustainable transportation system</li>
+                <li>Decentralized Autonomous Organizations and Operations (DAOs) for ITS</li>
+                <li>Crowdsourcing mechanisms for transportation-based Internet of Everything</li>
+                <li>New and smart ITS services beyond location-based services (LBS): decision-based services (DBS), task-based services (TBS), information or intelligence-based services (IBS) or knowledge-based services (KBS)</li>
+                <li>ITS with Mobile Internet, Cloud Computing, and Internet of Things, Services, and Everything</li>
+            </ul>
+            
+            <div class="keywords">
+                <strong>Keywords:</strong> Cyber-Physical-Social Systems, Parallel Transportation, 
+                Computational Transportation Experiments, Decentralized Autonomous Organizations and Operations
+            </div>
+            
+            <h2>Organizers</h2>
+            <div class="organizers">
+                <div class="organizer">
+                    <h3>Yisheng Lv</h3>
+                    <p>Institute of Automation, Chinese Academy of Sciences</p>
+                    <p><a href="mailto:yisheng.lv@ia.ac.cn">yisheng.lv@ia.ac.cn</a></p>
+                </div>
+                <div class="organizer">
+                    <h3>Yuanyuan Chen</h3>
+                    <p>Institute of Automation, Chinese Academy of Sciences</p>
+                    <p><a href="mailto:yuanyuan.chen@ia.ac.cn">yuanyuan.chen@ia.ac.cn</a></p>
+                </div>
+                <div class="organizer">
+                    <h3>Fei-Yue Wang</h3>
+                    <p>Institute of Automation, Chinese Academy of Sciences</p>
+                    <p><a href="mailto:feiyue.wang@ia.ac.cn">feiyue.wang@ia.ac.cn</a></p>
+                </div>
+            </div>
+            
+            <h2>Workshop Program</h2>
+            <div class="presentations">
+                <div class="presentation">
+                    <h3>Parallel Transportation and Transportation 5.0: From Intelligent Transportation to Transportation Intelligence</h3>
+                    <p><strong>Fei-Yue Wang</strong></p>
+                    <p>Institute of Automation, Chinese Academy of Sciences</p>
+                </div>
+                
+                <div class="presentation">
+                    <h3>AI-Powered Transportation 5.0: Integrating Foundation Models for Smarter, Safer, and More Adaptive Mobility</h3>
+                    <p><strong>Yisheng Lv</strong></p>
+                    <p>Institute of Automation, Chinese Academy of Sciences</p>
+                </div>
+            </div>
+            
+            <h2>Format</h2>
+            <p>Half-day Workshop</p>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 IEEE ITSC Workshop on Transportation 5.0</p>
+        </footer>
     </div>
-    <div class="organizer">
-        Yuanyuan Chen (Institute of Automation, Chinese Academy of Sciences, 
-        <a href="mailto:yuanyuan.chen@ia.ac.cn">yuanyuan.chen@ia.ac.cn</a>)
-    </div>
-    <div class="organizer">
-        Fei-Yue Wang (Institute of Automation, Chinese Academy of Sciences, 
-        <a href="mailto:feiyue.wang@ia.ac.cn">feiyue.wang@ia.ac.cn</a>)
-    </div>
-    
-    <h2>Abstract</h2>
-    <p>
-        With the rapid advancement and integration of cutting-edge technologies 
-        like IoT, edge computing, blockchain, and generative AI, massive amounts 
-        of real-time social and physical data are being generated for 
-        transportation systems. Transportation 5.0, the next evolution in 
-        intelligent mobility, is built on Cyber-Physical-Social Systems (CPSS), 
-        enabling deeper human-machine collaboration. As one of the most complex 
-        engineered systems, transportation faces multifaceted challenges that 
-        demand cost-effective, time-sensitive, and spatially optimized 
-        solutions. This workshop aims to inspire innovative approaches to these 
-        challenges by leveraging CPSS-based Intelligent Transportation Systems 
-        (ITS), which harness real-time social and physical data for smarter 
-        decision-making. The focus is on applying CPSS-empowered ITS to enhance 
-        traffic planning, dynamic routing, adaptive management, predictive 
-        control, and data-driven transportation analytics--delivering greater 
-        efficiency, precision, agility, and scalability. We invite researchers 
-        and industry leaders to explore this transformative frontier in ITS and 
-        shape the future of mobility.
-    </p>
-    
-    <p>The list of topics includes but not limited to:</p>
-    <ul>
-        <li>Cyber-Physical-Social Systems (CPSS) for transportation</li>
-        <li>Parallel transportation with knowledge automation</li>
-        <li>Big Models and Foundation Intelligence for ITS</li>
-        <li>GenAI and AGI for integrated and sustainable transportation system</li>
-        <li>Decentralized Autonomous Organizations and Operations (DAOs) for ITS</li>
-        <li>Crowdsourcing mechanisms for transportation-based Internet of Everything</li>
-        <li>New and smart ITS services beyond location-based services (LBS): decision-based services (DBS), task-based services (TBS), information or intelligence-based services (IBS) or knowledge-based services (KBS)</li>
-        <li>ITS with Mobile Internet, Cloud Computing, and Internet of Things, Services, and Everything</li>
-    </ul>
-    
-    <h2>Keywords</h2>
-    <p class="keywords">
-        Cyber-Physical-Social Systems, Parallel Transportation, Computational 
-        Transportation Experiments, Decentralized Autonomous Organizations and Operations
-    </p>
-    
-    <h2>Workshop Session Program</h2>
-    
-    <div class="presentation">
-        <h3>Presentation 1:</h3>
-        <p><em>Parallel Transportation and Transportation 5.0：From Intelligent 
-        Transportation to Transportation Intelligence</em></p>
-        <p>Fei-Yue Wang</p>
-        <p>Institute of Automation, Chinese Academy of Sciences</p>
-    </div>
-    
-    <div class="presentation">
-        <h3>Presentation 2:</h3>
-        <p><em>AI-Powered Transportation 5.0: Integrating Foundation Models for 
-        Smarter, Safer, and More Adaptive Mobility</em></p>
-        <p>Yisheng Lv</p>
-        <p>Institute of Automation, Chinese Academy of Sciences</p>
-    </div>
-    
-    <h2>The relevant ITSS Technical Committee</h2>
-    <p>NA</p>
 </body>
 </html>
