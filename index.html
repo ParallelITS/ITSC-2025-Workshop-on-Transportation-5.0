@@ -6,132 +6,332 @@
     <title>IEEE ITSC 2025 Workshop on Transportation 5.0</title>
     <style>
         :root {
-            --primary: #0056b3;
-            --secondary: #6c757d;
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #5f6368;
             --light: #f8f9fa;
-            --dark: #343a40;
-            --accent: #ffc107;
+            --dark: #202124;
+            --accent: #fbbc04;
+            --accent-light: #fdd663;
+            --success: #34a853;
+            --warning: #f9ab00;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 25px rgba(0, 0, 0, 0.15);
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--dark);
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             margin: 0;
             padding: 0;
+            min-height: 100vh;
         }
         
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 2rem auto;
             background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-heavy);
+            border-radius: 12px;
+            overflow: hidden;
         }
         
-        header {
-            background: var(--primary);
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--gradient-primary);
             color: white;
-            padding: 2rem 0;
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+        
+        .header-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M0 0 L100 100 M100 0 L0 100" stroke="white" stroke-width="1"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .logo-container {
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        
+        .logo img {
+            height: 160px;
+            width: auto;
+            max-width: 220px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-text {
+            flex-grow: 1;
             text-align: center;
+            padding: 0 2rem;
+            z-index: 1;
         }
         
-        header h1 {
+        .header-text h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.2rem;
+        .header-text p {
+            margin: 0.8rem 0 0;
+            font-size: 1.3rem;
             font-weight: 300;
+            opacity: 0.9;
         }
         
         .content {
-            padding: 2rem;
+            padding: 2.5rem;
         }
         
         h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            color: var(--primary-dark);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.7rem;
+            margin-top: 2.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
         }
         
         h3 {
             color: var(--dark);
             margin-top: 1.5rem;
+            font-size: 1.3rem;
         }
         
         .organizers {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            gap: 1.8rem;
+            margin: 2rem 0;
         }
         
         .organizer {
             flex: 1;
             min-width: 250px;
-            background: var(--light);
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .organizer:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
         }
         
         .notice-box {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
             padding: 2rem;
             text-align: center;
-            border: 1px dashed #6c757d;
+            border-left: 5px solid var(--accent);
             margin: 2rem 0;
             font-size: 1.2rem;
             color: var(--secondary);
-        }
-        
-        ul.topics {
-            columns: 2;
-            column-gap: 2rem;
-            margin: 1rem 0;
-        }
-        
-        ul.topics li {
-            margin-bottom: 0.5rem;
-            break-inside: avoid;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
         }
         
         .keywords {
             font-style: italic;
             color: var(--secondary);
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #f9f9f9 100%);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .schedule {
+            margin: 2.5rem 0;
+        }
+        
+        .schedule-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        
+        .schedule-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .schedule-item:hover::before {
+            opacity: 0.03;
+        }
+        
+        .schedule-item > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .schedule-time {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: inline-block;
+            background: rgba(26, 115, 232, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .schedule-title {
+            font-weight: 600;
+            margin-top: 0.8rem;
+            font-size: 1.15rem;
+            color: var(--dark);
+        }
+        
+        .schedule-speaker {
+            color: var(--secondary);
+            font-style: italic;
+            margin-top: 0.5rem;
         }
         
         footer {
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
             margin-top: 2rem;
         }
         
+        footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        
         @media (max-width: 768px) {
-            ul.topics {
-                columns: 1;
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
             }
             
-            header h1 {
+            .header-text h1 {
                 font-size: 2rem;
             }
+            
+            .header-text p {
+                font-size: 1.1rem;
+            }
+            
+            .logo-container {
+                margin-bottom: 1rem;
+            }
+            
+            .logo img {
+                height: 70px;
+            }
+            
+            .organizers {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 1.8rem;
+            }
+            
+            .container {
+                margin: 1rem;
+                border-radius: 8px;
+            }
         }
+        
+        /* Animation for page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content > * {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .content > *:nth-child(1) { animation-delay: 0.1s; }
+        .content > *:nth-child(2) { animation-delay: 0.2s; }
+        .content > *:nth-child(3) { animation-delay: 0.3s; }
+        .content > *:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>IEEE ITSC 2025 Workshop on Transportation 5.0</h1>
-            <p>Towards Cyber-Physical-Social Intelligent Transportation Systems</p>
-        </header>
+        <div class="header-container">
+            <div class="logo-container">
+                <!-- 请将logo.png替换为您的实际logo文件 -->
+                <div class="logo">
+                    <img src="logo.png" alt="IEEE ITSC 2025 Workshop Logo">
+                </div>
+            </div>
+            <div class="header-text">
+                <h1>IEEE ITSC 2025 Workshop on Transportation 5.0</h1>
+                <p>Towards Cyber-Physical-Social Intelligent Transportation Systems</p>
+            </div>
+            <!-- 右侧可以放置第二个logo（如果需要） -->
+            <div class="logo-container" style="visibility: hidden;">
+                <div class="logo">
+                    <img src="logo.png" alt="Second Logo">
+                </div>
+            </div>
+        </div>
         
         <div class="content">
             <h2>About the Workshop</h2>
@@ -159,21 +359,52 @@
                 shape the future of mobility.
             </p>
             
-            <h2>Topics of Interest</h2>
-            <ul class="topics">
-                <li>Cyber-Physical-Social Systems (CPSS) for transportation</li>
-                <li>Parallel transportation with knowledge automation</li>
-                <li>Big Models and Foundation Intelligence for ITS</li>
-                <li>GenAI and AGI for integrated and sustainable transportation system</li>
-                <li>Decentralized Autonomous Organizations and Operations (DAOs) for ITS</li>
-                <li>Crowdsourcing mechanisms for transportation-based Internet of Everything</li>
-                <li>New and smart ITS services beyond location-based services (LBS): decision-based services (DBS), task-based services (TBS), information or intelligence-based services (IBS) or knowledge-based services (KBS)</li>
-                <li>ITS with Mobile Internet, Cloud Computing, and Internet of Things, Services, and Everything</li>
-            </ul>
-            
             <div class="keywords">
                 <strong>Keywords:</strong> Cyber-Physical-Social Systems, Parallel Transportation, 
                 Computational Transportation Experiments, Decentralized Autonomous Organizations and Operations
+            </div>
+            
+            <h2>Workshop Schedule</h2>
+            <div class="schedule">
+                <div class="schedule-item">
+                    <div class="schedule-time">8:30 - 9:00</div>
+                    <div class="schedule-title">Opening Remarks</div>
+                    <div class="schedule-speaker">Fei-Yue Wang (Institute of Automation, Chinese Academy of Sciences, China)</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">9:00 - 9:30</div>
+                    <div class="schedule-title">Personalized Autonomous Driving with Large Language Models: Field Experiments and Beyond</div>
+                    <div class="schedule-speaker">Lingxi Li (Purdue University, USA)</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">9:30 - 10:00</div>
+                    <div class="schedule-title">Future Public Transit: Autonomy, Cloud Control, and Verticalisation</div>
+                    <div class="schedule-speaker">Xiaobo Qu (Tsinghua University, China), Ying Yang (Shanghai University, China)</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:00 - 10:30</div>
+                    <div class="schedule-title">Coffee Break</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:30 - 11:00</div>
+                    <div class="schedule-title">Unveiling Uniform Power Law in Stochastic Human and Autonomous Driving Behavior</div>
+                    <div class="schedule-speaker">Xiaopeng Li (University of Wisconsin-Madison)</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">11:00 - 11:30</div>
+                    <div class="schedule-title">To Be Announced</div>
+                    <div class="schedule-speaker">Jiaqi Ma (University of California, Los Angeles, USA)</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">11:30 - 12:00</div>
+                    <div class="schedule-title">Intelligent perception and mobility for low-altitude transportation systems</div>
+                    <div class="schedule-speaker">Yonglin Tian (Institute of Automation, Chinese Academy of Sciences, China)</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00 - 12:30</div>
+                    <div class="schedule-title">Panel Discussion and Closing</div>
+                    <div class="schedule-speaker">Yisheng Lv (Institute of Automation, Chinese Academy of Sciences, China)</div>
+                </div>
             </div>
             
             <h2>Organizers</h2>
@@ -194,19 +425,6 @@
                     <p><a href="mailto:feiyue.wang@ia.ac.cn">feiyue.wang@ia.ac.cn</a></p>
                 </div>
             </div>
-            
-            <h2>Workshop Schedule</h2>
-            <div class="notice-box">
-                To be published soon
-            </div>
-            
-            <h2>Invited Experts</h2>
-            <div class="notice-box">
-                To be published soon
-            </div>
-            
-            <h2>Tentative Session Program</h2>
-            <p>Half-day Workshop</p>
         </div>
         
         <footer>
